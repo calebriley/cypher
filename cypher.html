@@ -42,6 +42,8 @@
                 gap: 10px;
             }
 
+            .char
+
             .char:hover {
                 background-color: hsl(0, 0%, 98%);
             }
@@ -49,40 +51,63 @@
             .char:active {
                 background-color: hsl(0, 0%, 80%);
             }
+
+            .chars {
+                display: flex;
+                grid-column: 1 / -1;
+                flex-direction: row;
+                gap: 2px;
+                flex-wrap: wrap;
+
+            }
+
+            .chars img {
+                display: inline-block;
+                height: 32px;
+                width: 32px;
+            }
+
         </style>
     </head>
     <body>
-        <div class="grid" x-data="{ value: '', }">
+        <div class="grid" x-data="{ value: '', chars: [], }">
+            <div class="chars">
+                <template x-for="char in chars">
+                    <img :src="'characters/'+char+'.svg'">
+                </template>
+            </div>
             <input class="phrase" type="text" x-model="value">
-            <button class="clear" x-on:click="value = ''">Clear</button>
-            <div class="char" x-on:click="value += 'a'"><img src="characters/a.svg"> a</div>
-            <div class="char" x-on:click="value += 'b'"><img src="characters/b.svg"> b</div>
-            <div class="char" x-on:click="value += 'c'"><img src="characters/c.svg"> c</div>
-            <div class="char" x-on:click="value += 'd'"><img src="characters/d.svg"> d</div>
-            <div class="char" x-on:click="value += 'e'"><img src="characters/e.svg"> e</div>
-            <div class="char" x-on:click="value += 'f'"><img src="characters/f.svg"> f</div>
-            <div class="char" x-on:click="value += 'g'"><img src="characters/g.svg"> g</div>
-            <div class="char" x-on:click="value += 'h'"><img src="characters/h.svg"> h</div>
-            <div class="char" x-on:click="value += 'i'"><img src="characters/i.svg"> i</div>
-            <div class="char" x-on:click="value += 'j'"><img src="characters/j.svg"> j</div>
-            <div class="char" x-on:click="value += 'k'"><img src="characters/k.svg"> k</div>
-            <div class="char" x-on:click="value += 'l'"><img src="characters/l.svg"> l</div>
-            <div class="char" x-on:click="value += 'm'"><img src="characters/m.svg"> m</div>
-            <div class="char" x-on:click="value += 'n'"><img src="characters/n.svg"> n</div>
-            <div class="char" x-on:click="value += 'o'"><img src="characters/o.svg"> o</div>
-            <div class="char" x-on:click="value += 'p'"><img src="characters/p.svg"> p</div>
-            <div class="char" x-on:click="value += 'q'"><img src="characters/q.svg"> q</div>
-            <div class="char" x-on:click="value += 'r'"><img src="characters/r.svg"> r</div>
-            <div class="char" x-on:click="value += 's'"><img src="characters/s.svg"> s</div>
-            <div class="char" x-on:click="value += 't'"><img src="characters/t.svg"> t</div>
-            <div class="char" x-on:click="value += 'u'"><img src="characters/u.svg"> u</div>
-            <div class="char" x-on:click="value += 'v'"><img src="characters/v.svg"> v</div>
-            <div class="char" x-on:click="value += 'w'"><img src="characters/w.svg"> w</div>
-            <div class="char" x-on:click="value += 'x'"><img src="characters/x.svg"> x</div>
-            <div class="char" x-on:click="value += 'y'"><img src="characters/y.svg"> y</div>
-            <div class="char" x-on:click="value += 'z'"><img src="characters/z.svg"> z</div>
-            <div class="char" x-on:click="value += 'th'"><img src="characters/th.svg"> th</div>
-            <div class="char" x-on:click="value += ' '"><img src="characters/space.svg">space</div>
+            <button class="clear" x-on:click="value = '', chars=[]">Clear</button>
+            <div class="char" x-on:click="value += 'a', chars.push('a')"><img src="characters/a.svg"> a</div>
+            <div class="char" x-on:click="value += 'b', chars.push('b')"><img src="characters/b.svg"> b</div>
+            <div class="char" x-on:click="value += 'c', chars.push('c')"><img src="characters/c.svg"> c</div>
+            <div class="char" x-on:click="value += 'd', chars.push('d')"><img src="characters/d.svg"> d</div>
+            <div class="char" x-on:click="value += 'e', chars.push('e')"><img src="characters/e.svg"> e</div>
+            <div class="char" x-on:click="value += 'f', chars.push('f')"><img src="characters/f.svg"> f</div>
+            <div class="char" x-on:click="value += 'g', chars.push('g')"><img src="characters/g.svg"> g</div>
+            <div class="char" x-on:click="value += 'h', chars.push('h')"><img src="characters/h.svg"> h</div>
+            <div class="char" x-on:click="value += 'i', chars.push('i')"><img src="characters/i.svg"> i</div>
+            <div class="char" x-on:click="value += 'j', chars.push('j')"><img src="characters/j.svg"> j</div>
+            <div class="char" x-on:click="value += 'k', chars.push('k')"><img src="characters/k.svg"> k</div>
+            <div class="char" x-on:click="value += 'l', chars.push('l')"><img src="characters/l.svg"> l</div>
+            <div class="char" x-on:click="value += 'm', chars.push('m')"><img src="characters/m.svg"> m</div>
+            <div class="char" x-on:click="value += 'n', chars.push('n')"><img src="characters/n.svg"> n</div>
+            <div class="char" x-on:click="value += 'o', chars.push('o')"><img src="characters/o.svg"> o</div>
+            <div class="char" x-on:click="value += 'p', chars.push('p')"><img src="characters/p.svg"> p</div>
+            <div class="char" x-on:click="value += 'q', chars.push('q')"><img src="characters/q.svg"> q</div>
+            <div class="char" x-on:click="value += 'r', chars.push('r')"><img src="characters/r.svg"> r</div>
+            <div class="char" x-on:click="value += 's', chars.push('s')"><img src="characters/s.svg"> s</div>
+            <div class="char" x-on:click="value += 't', chars.push('t')"><img src="characters/t.svg"> t</div>
+            <div class="char" x-on:click="value += 'u', chars.push('u')"><img src="characters/u.svg"> u</div>
+            <div class="char" x-on:click="value += 'v', chars.push('v')"><img src="characters/v.svg"> v</div>
+            <div class="char" x-on:click="value += 'w', chars.push('w')"><img src="characters/w.svg"> w</div>
+            <div class="char" x-on:click="value += 'x', chars.push('x')"><img src="characters/x.svg"> x</div>
+            <div class="char" x-on:click="value += 'y', chars.push('y')"><img src="characters/y.svg"> y</div>
+            <div class="char" x-on:click="value += 'z', chars.push('z')"><img src="characters/z.svg"> z</div>
+            <div class="char" x-on:click="value += 'th', chars.push('th')"><img src="characters/th.svg"> th</div>
+            <div class="char" x-on:click="value += ' ', chars.push('space')"><img src="characters/space.svg">space</div>
+
+            
         </div>
     </body>
 </html>
