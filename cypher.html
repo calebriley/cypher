@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <title>Cypher Solver</title>
     <link rel="stylesheet"
@@ -166,7 +167,7 @@
 </head>
 
 <body>
-    <div x-data="{chars: [], selected: 'entry', history: [] }">
+    <div x-data="{chars: $persist([]), selected: 'entry', history: $persist([]) }">
         <nav class="tabs">
             <h1 x-show="selected == 'entry'">Enter your phrase</h1>
             <h1 x-show="selected == 'history'">History</h1>
